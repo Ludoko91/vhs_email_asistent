@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: mail_container
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+    
+  embedding_model:
+    build:
+      context: ./docker  # Verzeichnis, das die Dockerfiles des Embedding-Modells enthält
+    container_name: embeddingmodel_container
+    ports:
+      - "5001:5000"  # Port-Mapping für den Embedding-Container
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    external:
+      name: mynetwork  # Verwenden Sie das erstellte Docker-Netzwerk
