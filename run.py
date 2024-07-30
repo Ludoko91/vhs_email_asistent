@@ -1,8 +1,8 @@
-import time
-
+import gettest as a
 from emailclient import main
 
-time.sleep(4)
 print("started")
 i = main.email_worker()
-i.get_mail_infos()
+i.get_mail_prep()
+i.processing_mail()   
+    
